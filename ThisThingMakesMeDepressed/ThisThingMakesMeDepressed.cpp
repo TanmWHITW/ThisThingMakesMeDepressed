@@ -85,18 +85,18 @@ int main()
 	/// First launch does not have any data
 	/// </summary>
 	/// <returns></returns>
-	std::cout << "Записей пока нет"			<< std::endl;
+	std::cout << "Записей пока нет"	<< std::endl;
 
 	/// <summary>
 	/// Navigation via integer type
 	/// </summary>
 	/// <returns></returns>
-	std::cout << "Введите:"					<< std::endl;
-	std::cout << "1-для удаления записи"	<< std::endl;
-	std::cout << "2-для ввода новой записи"	<< std::endl;
-	std::cout << "3-для изменения записи"	<< std::endl;
-	std::cout << "4-для вывода записи(ей)"  << std::endl;
-	std::cout << "5-для выхода"				<< std::endl;
+	std::cout << "Введите:"	<< std::endl;
+	std::cout << "1-для удаления записи" << std::endl;
+	std::cout << "2-для ввода новой записи" << std::endl;
+	std::cout << "3-для изменения записи" << std::endl;
+	std::cout << "4-для вывода записи(ей)" << std::endl;
+	std::cout << "5-для выхода"	<< std::endl;
 
 	/// <summary>
 	/// Getting the void to navigate to
