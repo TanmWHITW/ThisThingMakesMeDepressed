@@ -27,6 +27,7 @@ struct Student
 {
 	std::string fullName{};
 	int yearOfEnterringUniversity{};
+	std::string facility{};
 };
 
 #pragma endregion
@@ -42,12 +43,12 @@ class FullName
 {
 public:
 
-	FullName();
 	~FullName();
 
 	void SetFullName(std::string, std::string, std::string);
 	void CheckFullName();
 	void ShowFullName();
+	void AddFullName();
 
 private:
 	std::string _surname;
@@ -56,16 +57,18 @@ private:
 
 };
 
-FullName::FullName()
-{
-
-}
-
+/// Default destructor
 FullName::~FullName()
 {
 
 }
 
+/// <summary>
+/// Getting amd setting values for the next working with them
+/// </summary>
+/// <param name="surname">Surname input</param>
+/// <param name="name">Name input</param>
+/// <param name="paronymic">Paronymic input</param>
 void FullName::SetFullName(std::string surname, std::string name, std::string paronymic)
 {
 	_surname = surname;
@@ -73,6 +76,9 @@ void FullName::SetFullName(std::string surname, std::string name, std::string pa
 	_paronymic = paronymic;
 }
 
+/// <summary>
+/// Checking if there are forbidden symbols
+/// </summary>
 void FullName::CheckFullName()
 {
 	for (i = 0; i < _surname.length(); i++)
@@ -100,7 +106,7 @@ void FullName::CheckFullName()
 		else
 		{
 			_surname.clear();
-			std::cout << "Введены некорректные данные" << std::endl;
+			std::cout << "Введен некорректный символ "; std::cout << i + 1; std::cout << ", была введена цифра или спец.символ! Запись будет удалена!" << std::endl;
 			return;
 		}
 	}
@@ -132,7 +138,7 @@ void FullName::CheckFullName()
 		else
 		{
 			_name.clear();
-			std::cout << "Введены некорректные данные" << std::endl;
+			std::cout << "Введен некорректный символ "; std::cout << i + 1; std::cout << ", была введена цифра или спец.символ! Запись будет удалена!" << std::endl;
 			return;
 		}
 	}
@@ -165,14 +171,26 @@ void FullName::CheckFullName()
 		else
 		{
 			_paronymic.clear();
-			std::cout << "Введены некорректные данные" << std::endl << std::endl;
+			std::cout << "Введен некорректный символ "; std::cout << i + 1; std::cout << ", была введена цифра или спец.символ! Запись будет удалена!" << std::endl;
 			return;
 		}
 	}
-
-	Students[currentAmountOfStudentsInDatabase].fullName = _surname + " " + _name[0] + "." + _paronymic[0] + ".";
 }
 
+/// <summary>
+/// Adding checked input to database
+/// Adding ERROR if there were forbidden letters
+/// </summary>
+void FullName::AddFullName()
+{
+	if (_surname.empty() || _name.empty() || _paronymic.empty())
+		Students[currentAmountOfStudentsInDatabase].fullName = "ERROR";
+	else Students[currentAmountOfStudentsInDatabase].fullName = _surname + " " + _name[0] + "." + _paronymic[0] + ".";
+}
+
+/// <summary>
+/// Test void, delete later
+/// </summary>
 void FullName::ShowFullName()
 {
 	std::cout << _surname + " " + _name[0] + "." + _paronymic[0] + "." << std::endl;
@@ -180,38 +198,44 @@ void FullName::ShowFullName()
 
 #pragma endregion
 
-#pragma region YearOfEnterringUniversity
+#pragma region Class YearOfEnterringUniversity
 
 class YearOfEnterringUniversity
 {
 public:
-	YearOfEnterringUniversity();
 	~YearOfEnterringUniversity();
 	void SetYearOfEnterringUniversity(std::string);
 	void CheckYearOfEnterringUniversity();
 	void ShowYearOfEnterringUniversity();
+	void AddYearOfEnterringUniversity();
 
-private:
+
+protected:
 	std::string _year;
-	int _yearInt;
+	int _yearInt{};
 };
 
-YearOfEnterringUniversity::YearOfEnterringUniversity()
-{
-
-}
-
+/// <summary>
+/// Default destructor
+/// </summary>
 YearOfEnterringUniversity::~YearOfEnterringUniversity()
 {
 
 }
 
+/// <summary>
+/// Getting amd setting values for the next working with them
+/// </summary>
+/// <param name="year">Year of enterring the university input</param>
 void YearOfEnterringUniversity::SetYearOfEnterringUniversity(std::string year)
 {
 	_year = year;
 	_yearInt = NULL;
 }
 
+/// <summary>
+/// Checking if there are forbidden letters (Only 12334567890 are allowed)
+/// </summary>
 void YearOfEnterringUniversity::CheckYearOfEnterringUniversity()
 {
 	for (i = 0; i < _year.length(); i++)
@@ -226,7 +250,7 @@ void YearOfEnterringUniversity::CheckYearOfEnterringUniversity()
 		else
 		{
 			_year.clear();
-			std::cout << "Введены некорректные данные, были введены буквы или спец.символы!" << std::endl;
+			std::cout << "Введен некорректный символ "; std::cout << i + 1; std::cout << ", была введена буква или спец.символ! Запись будет удалена!" << std::endl;
 			return;
 		}
 
@@ -234,13 +258,27 @@ void YearOfEnterringUniversity::CheckYearOfEnterringUniversity()
 
 	_yearInt = std::stoi(_year);
 
-	if (_yearInt >= 1995 && _yearInt <= 2022)
-		Students[currentAmountOfStudentsInDatabase].yearOfEnterringUniversity = _yearInt;
-	else
-		std::cout << "Год поступления может быть указан в промежутке 1995-2022!" << std::endl;
+	if (_yearInt < 1995 || _yearInt > 2022)
+	{
+		std::cout << "Год поступления может быть указан в промежутке 1995-2022!";
+		_yearInt = NULL;
+	}
 
+	std::cout << std::endl;
 }
 
+/// <summary>
+/// Adding checked ibput to data base
+/// Adding 0 if there were forbidden letters
+/// </summary>
+void YearOfEnterringUniversity::AddYearOfEnterringUniversity()
+{
+	Students[currentAmountOfStudentsInDatabase].yearOfEnterringUniversity = _yearInt;
+}
+
+/// <summary>
+/// Test void, delete later
+/// </summary>
 void YearOfEnterringUniversity::ShowYearOfEnterringUniversity()
 {
 	std::cout << _year << std::endl;
@@ -248,16 +286,159 @@ void YearOfEnterringUniversity::ShowYearOfEnterringUniversity()
 
 #pragma endregion
 
+#pragma region Facility
 
+class Facility
+{
+public:
+	~Facility();
+	void SetFacility(std::string);
+	void CheckFacility();
+	void IntToStringFacility();
+	void AddFacility();
+	void ShowFacility();
+
+private:
+	std::string _facility;
+
+protected:
+	int _facilityInt{};
+};
+
+Facility::~Facility()
+{
+
+}
+
+/// <summary>
+/// Getting and setting values
+/// </summary>
+/// <param name="facility">Facility input</param>
+void Facility::SetFacility(std::string facility)
+{
+	_facility = facility;
+}
+
+/// <summary>
+/// Checking if there were forbidden letters
+/// </summary>
+void Facility::CheckFacility()
+{
+	for (i = 0; i < _facility.length(); i++)
+	{
+		if (_facility[i] == '1' || _facility[i] == '2' ||
+			_facility[i] == '3' || _facility[i] == '4' ||
+			_facility[i] == '5' || _facility[i] == '6' ||
+			_facility[i] == '7' || _facility[i] == '8' ||
+			_facility[i] == '9' || _facility[i] == '0')
+
+			std::cout << "Проверка цифры факультета пройдена! Проверен символ " << i + 1 << std::endl;
+		else
+		{
+			_facility.clear();
+			std::cout << "Введен некорректный символ "; std::cout << i + 1; std::cout << ", была введена буква или спец.символ! Запись будет удалена!" << std::endl;
+			return;
+		}
+
+	}
+	std::cout << std::endl;
+}
+
+/// <summary>
+/// Since we working with switch here 
+/// we have to convert string to integer
+/// and set value to private string
+/// </summary>
+void Facility::IntToStringFacility()
+{
+	if (_facility.empty())
+	{
+		_facility = "ERROR";
+		return;
+	}
+
+	_facilityInt = std::stoi(_facility);
+
+	switch (_facilityInt)
+	{
+	case 1:
+		_facility = "Факультет геологии и геофизики нефти и газа";
+		break;
+	case 2:
+		_facility = "Факультет разработки нефтяных и газовых месторождений";
+		break;
+	case 3:
+		_facility = "Факультет проектирования, сооружения и эксплуатации систем трубопроводного транспорта";
+		break; 
+	case 4:
+		_facility = "Факультет инженерной механики";
+		break; 
+	case 5:
+		_facility = "Факультет химической технологии и экологии";
+		break; 
+	case 6:
+		_facility = "Факультет автоматики и вычислительной техники";
+		break; 
+	case 7:
+		_facility = "Факультет комплексной безопасности ТЭК";
+		break; 
+	case 8:
+		_facility = "Факультет экономики и управления";
+		break;
+	case 9:
+		_facility = "Факультет международного энергетического бизнеса";
+		break;
+	case 10:
+		_facility = "Факультет международного энергетического бизнеса";
+		break;
+	default:
+		std::cout << "Факультета под номером "; std::cout << _facility; std::cout << " не существует! Запись будет удалена!" << std::endl;
+		_facility = "ERROR";
+		break;
+		break;
+	}
+}
+
+/// <summary>
+/// Adding value in database
+/// Adding ERROR if there were forbidden letters
+/// </summary>
+void Facility::AddFacility()
+{
+	Students[currentAmountOfStudentsInDatabase].facility = _facility;
+}
+
+/// <summary>
+/// Test void, delete later
+/// </summary>
+void Facility::ShowFacility()
+{
+	std::cout << Students[currentAmountOfStudentsInDatabase].facility << std::endl;
+}
+
+#pragma endregion
+
+/// <summary>
+/// Initialisation of the object
+/// </summary>
 FullName fullName;
+
+/// <summary>
+/// Initialisation of the object
+/// </summary>
 YearOfEnterringUniversity yearOfEnterringUniversity;
+
+/// <summary>
+/// Initialisation of the object
+/// </summary>
+Facility facility;
 
 /// <summary>
 /// Deleting the specific data or the whole one
 /// </summary>
 void Delete()
 {
-
+	
 };
 
 /// <summary>
@@ -270,6 +451,8 @@ void EnterNew()
 	std::string inputPatronymic;
 
 	std::string inputYearOfEnterringUniversity;
+
+	std::string inputFacility;
 
 	std::cout << "Ввод информации" << std::endl;
 	if (currentAmountOfStudentsInDatabase < STRUCTURE_SIZE)
@@ -289,6 +472,7 @@ void EnterNew()
 
 		fullName.SetFullName(inputSurname, inputName, inputPatronymic);
 		fullName.CheckFullName();
+		fullName.AddFullName();
 
 		std::cout << std::endl << "Год поступления цифрами" << std::endl;
 		std::cin >> inputYearOfEnterringUniversity;
@@ -297,11 +481,22 @@ void EnterNew()
 
 		yearOfEnterringUniversity.SetYearOfEnterringUniversity(inputYearOfEnterringUniversity);
 		yearOfEnterringUniversity.CheckYearOfEnterringUniversity();
+		yearOfEnterringUniversity.AddYearOfEnterringUniversity();
+
+		std::cout << std::endl << "Выберите факультет\n1 - Факультет геологии и геофизики нефти и газа\n2 - Факультет разработки нефтяных и газовых месторождений\n3 - Факультет проектирования, сооружения и эксплуатации систем трубопроводного транспорта\n4 - Факультет инженерной механики\n5 - Факультет химической технологии и экологии\n6 - Факультет автоматики и вычислительной техники\n7 - Факультет комплексной безопасности ТЭК\n8 - Факультет экономики и управления\n9 - Факультет международного энергетического бизнеса\n10 - Юридический факультет" << std::endl;
+		std::cin >> inputFacility;
+
+		std::cout << std::endl;
+
+		facility.SetFacility(inputFacility);
+		facility.CheckFacility();
+		facility.IntToStringFacility();
+		facility.AddFacility();
 
 		currentAmountOfStudentsInDatabase++;
 	}
 	else
-		std::cout << "Введено максимальное кол-во запи-сей";
+		std::cout << "Введено максимальное кол-во запи-сей" << std::endl;
 	std::cout << "Что дальше?" << std::endl;
 	std::cin >> navigation;
 };
@@ -343,6 +538,10 @@ void Out()
 		std::cout << Students[outputNumber - 1].yearOfEnterringUniversity;
 		std::cout << std::endl;
 
+		std::cout << "Факультет" << std::endl;
+		std::cout << Students[outputNumber - 1].facility;
+		std::cout << std::endl;
+
 		std::cout << "____________________________________" << std::endl;
 		std::cout << std::endl;
 
@@ -363,6 +562,10 @@ void Out()
 
 			std::cout << "Год поступления" << std::endl;
 			std::cout << Students[i].yearOfEnterringUniversity;
+			std::cout << std::endl;
+
+			std::cout << "Факультет" << std::endl;
+			std::cout << Students[i].facility;
 			std::cout << std::endl;
 
 			std::cout << "____________________________________" << std::endl;
