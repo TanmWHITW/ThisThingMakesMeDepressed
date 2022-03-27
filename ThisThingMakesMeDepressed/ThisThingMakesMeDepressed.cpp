@@ -508,7 +508,7 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
-			break;
+			return;
 		}
 		break;
 	case 2:
@@ -530,8 +530,9 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
-			break;
+			return;
 		}
+		break;
 	case 3:
 		switch (_specializationInt)
 		{
@@ -548,8 +549,9 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
-			break;
+			return;
 		}
+		break;
 	case 4:
 		switch (_specializationInt)
 		{
@@ -578,8 +580,9 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
-			break;
+			return;
 		}
+		break;
 	case 5:
 		switch (_specializationInt)
 		{
@@ -599,8 +602,9 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
-			break;
+			return;
 		}
+		break;
 	case 6:
 		switch (_specializationInt)
 		{
@@ -638,8 +642,9 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
-			break;
+			return;
 		}
+		break;
 	case 7:
 		switch (_specializationInt)
 		{
@@ -680,8 +685,9 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
-			break;
+			return;
 		}
+		break;
 	case 8:
 		switch (_specializationInt)
 		{
@@ -702,8 +708,9 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
-			break;
+			return;
 		}
+		break;
 	case 9:
 		switch (_specializationInt)
 		{
@@ -723,8 +730,9 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
-			break;
+			return;
 		}
+		break;
 	case 10:
 		switch (_specializationInt)
 		{
@@ -738,7 +746,7 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
-			break;
+			return;
 		}
 	default:
 		std::cout << "Выбран несуществующий факультет! Запись будет удалена!" << std::endl;
@@ -746,7 +754,6 @@ void Specialization::StringToIntSpecialization()
 		_specialization = "ERROR";
 		break;
 	}
-
 }
 
 void Specialization::AddSpecialization()
