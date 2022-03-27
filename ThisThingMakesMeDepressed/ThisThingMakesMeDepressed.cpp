@@ -28,6 +28,9 @@ struct Student
 	std::string fullName{};
 	int yearOfEnterringUniversity{};
 	std::string facility{};
+	int facilityInt{};
+	std::string specialization{};
+	int specializationInt{};
 };
 
 #pragma endregion
@@ -291,24 +294,18 @@ void YearOfEnterringUniversity::ShowYearOfEnterringUniversity()
 class Facility
 {
 public:
-	~Facility();
+
 	void SetFacility(std::string);
 	void CheckFacility();
-	void IntToStringFacility();
+	void StringToIntFacility();
 	void AddFacility();
 	void ShowFacility();
 
 private:
-	std::string _facility;
-
-protected:
+	std::string _facility{};
 	int _facilityInt{};
 };
 
-Facility::~Facility()
-{
-
-}
 
 /// <summary>
 /// Getting and setting values
@@ -349,7 +346,7 @@ void Facility::CheckFacility()
 /// we have to convert string to integer
 /// and set value to private string
 /// </summary>
-void Facility::IntToStringFacility()
+void Facility::StringToIntFacility()
 {
 	if (_facility.empty())
 	{
@@ -393,8 +390,8 @@ void Facility::IntToStringFacility()
 		break;
 	default:
 		std::cout << "Факультета под номером "; std::cout << _facility; std::cout << " не существует! Запись будет удалена!" << std::endl;
+		_facilityInt = NULL;
 		_facility = "ERROR";
-		break;
 		break;
 	}
 }
@@ -406,6 +403,8 @@ void Facility::IntToStringFacility()
 void Facility::AddFacility()
 {
 	Students[currentAmountOfStudentsInDatabase].facility = _facility;
+	Students[currentAmountOfStudentsInDatabase].facilityInt = _facilityInt;
+
 }
 
 /// <summary>
@@ -414,24 +413,374 @@ void Facility::AddFacility()
 void Facility::ShowFacility()
 {
 	std::cout << Students[currentAmountOfStudentsInDatabase].facility << std::endl;
+	std::cout << Students[currentAmountOfStudentsInDatabase].facilityInt << std::endl;
 }
 
 #pragma endregion
 
+#pragma region Class Specialization
+
+class Specialization
+{
+public:
+	~Specialization();
+	void SetSpecialization(std::string);
+	void CheckSpecialization();
+	void StringToIntSpecialization();
+	void AddSpecialization();
+	void ShowSpecialization();
+
+private:
+	std::string _specialization{};
+	int _specializationInt{};
+};
+
 /// <summary>
-/// Initialisation of the object
+/// Default destructor
+/// </summary>
+Specialization::~Specialization()
+{
+
+}
+
+void Specialization::SetSpecialization(std::string specialization)
+{
+	_specialization = specialization;
+}
+
+void Specialization::CheckSpecialization()
+{
+	for (i = 0; i < _specialization.length(); i++)
+	{
+		if (_specialization[i] == '1' || _specialization[i] == '2' ||
+			_specialization[i] == '3' || _specialization[i] == '4' ||
+			_specialization[i] == '5' || _specialization[i] == '6' ||
+			_specialization[i] == '7' || _specialization[i] == '8' ||
+			_specialization[i] == '9' || _specialization[i] == '0')
+
+			std::cout << "Проверка выбранной специальности пройдена! Проверен символ " << i + 1 << std::endl;
+		else
+		{
+			_specialization.clear();
+			std::cout << "Введен некорректный символ "; std::cout << i + 1; std::cout << ", была введена буква или спец.символ! Запись будет удалена!" << std::endl;
+			return;
+		}
+
+	}
+	std::cout << std::endl;
+}
+
+void Specialization::StringToIntSpecialization()
+{
+
+	if (_specialization.empty())
+	{
+		_specialization = "ERROR";
+		return;
+	}
+
+	_specializationInt = std::stoi(_specialization);
+
+	switch (Students[currentAmountOfStudentsInDatabase].facilityInt)
+	{
+	case 1:
+		switch (_specializationInt)
+		{
+		case 1:
+			_specialization = "Геология (05.03.01), бакалавриат";
+			break;
+		case 2:
+			_specialization = "Экология и природопользование (05.03.06), бакалавриат";
+			break;
+		case 11:
+			_specialization = "Прикладная геология (21.05.02), специалитет";
+			break;
+		case 12:
+			_specialization = "Технология геологической разведки (21.05.03), специалитет";
+			break;
+		case 101:
+			_specialization = "Нефтегазовое дело (21.04.01), магистратура";
+			break;
+		case 102:
+			_specialization = "Экология и природопользование (05.04.06), магистратура";
+			break;
+		default:
+			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
+			_specializationInt = NULL;
+			_specialization = "ERROR";
+			break;
+		}
+		break;
+	case 2:
+		switch (_specializationInt)
+		{
+		case 1:
+			_specialization = "Нефтегазовое дело (21.03.01), бакалавриат";
+			break;
+		case 11:
+			_specialization = "Физические процессы горного или нефтегазового производства (21.05.05), специалитет";
+			break;
+		case 12:
+			_specialization = "Нефтегазовые техника и технологии (21.05.06), специалитет";
+			break;
+		case 101:
+			_specialization = "Нефтегазовое дело (21.04.01), магистратура";
+			break;
+		default:
+			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
+			_specializationInt = NULL;
+			_specialization = "ERROR";
+			break;
+		}
+	case 3:
+		switch (_specializationInt)
+		{
+		case 1:
+			_specialization = "Нефтегазовое дело (21.03.01), бакалавриат";
+			break;
+		case 11:
+			_specialization = "Нефтегазовые техника и технологии (21.05.06), специалитет";
+			break;
+		case 101:
+			_specialization = "Нефтегазовое дело (21.04.01), магистратура";
+			break;
+		default:
+			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
+			_specializationInt = NULL;
+			_specialization = "ERROR";
+			break;
+		}
+	case 4:
+		switch (_specializationInt)
+		{
+		case 1:
+			_specialization = "Машиностроение (15.03.01), бакалавриат";
+			break; 
+		case 2:
+			_specialization = "Технологические машины и оборудование (15.03.02), бакалавриат";
+			break;
+		case 3:
+			_specialization = "Техносферная безопасность (20.03.01), бакалавриат";
+			break;
+		case 4:
+			_specialization = "Стандартизация и метрология (27.03.01), бакалавриат";
+			break;
+		case 101:
+			_specialization = "Технологические машины и оборудование (15.04.02), магистратура";
+			break;
+		case 102:
+			_specialization = "Техносферная безопасность (20.04.01), магистратура";
+			break;
+		case 103:
+			_specialization = "Стандартизация и метрология (27.04.01), магистратура";
+			break;
+		default:
+			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
+			_specializationInt = NULL;
+			_specialization = "ERROR";
+			break;
+		}
+	case 5:
+		switch (_specializationInt)
+		{
+		case 1:
+			_specialization = "Химическая технология (18.03.01), бакалавриат";
+			break;
+		case 2:
+			_specialization = "Энерго- и ресурсосберегающие процессы в химической технологии, нефтехимии и биотехнологии (18.03.02), бакалавриат";
+			break;
+		case 101:
+			_specialization = "Химическая технология (18.04.01), магистратура";
+			break;
+		case 102:
+			_specialization = "Энерго- и ресурсосберегающие процессы в химической технологии, нефтехимии и биотехнологии (18.04.02), магистратура";
+			break;
+		default:
+			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
+			_specializationInt = NULL;
+			_specialization = "ERROR";
+			break;
+		}
+	case 6:
+		switch (_specializationInt)
+		{
+		case 1:
+			_specialization = "Прикладная математика (01.03.04), бакалавриат";
+			break;
+		case 2:
+			_specialization = "Информатика и вычислительная техника (09.03.01), бакалавриат";
+			break;
+		case 3:
+			_specialization = "Приборостроение (12.03.01), бакалавриат";
+			break;
+		case 4:
+			_specialization = "Электроэнергетика и электротехника (13.03.02), бакалавриат";
+			break;
+		case 5:
+			_specialization = "Управление в технических системах (27.03.04), бакалавриат";
+			break;
+		case 101:
+			_specialization = "Прикладная математика (01.04.04), магистратура";
+			break;
+		case 102:
+			_specialization = "Управление в технических системах (27.04.04), магистратура";
+			break;
+		case 103:
+			_specialization = "Информатика и вычислительная техника (09.04.01), магистратура";
+			break;
+		case 104:
+			_specialization = "Электроэнергетика и электротехника (13.04.02), магистратура";
+			break;
+		case 105:
+			_specialization = "Приборостроение (12.04.01), магистратура";
+			break;
+		default:
+			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
+			_specializationInt = NULL;
+			_specialization = "ERROR";
+			break;
+		}
+	case 7:
+		switch (_specializationInt)
+		{
+		case 1:
+			_specialization = "Информационная безопасность (10.03.01), бакалавриат";
+			break;
+		case 2:
+			_specialization = "Экономика (38.03.01), бакалавриат";
+			break;
+		case 3:
+			_specialization = "Бизнес-информатика (38.03.05), бакалавриат";
+			break;
+		case 4:
+			_specialization = "Юриспруденция (40.03.01), бакалавриат";
+			break;
+		case 5:
+			_specialization = "Международные отношения (41.03.05), бакалавриат";
+			break;
+		case 11:
+			_specialization = "Информационная безопасность автоматизированных систем (10.05.03), специалитет";
+			break;
+		case 12:
+			_specialization = "Информационно-аналитические системы безопасности (10.05.04), специалитет";
+			break;
+		case 13:
+			_specialization = "Экономическая безопасность (38.05.01), специалитет";
+			break;
+		case 14:
+			_specialization = "Правовое обеспечение национальной безопасности (40.05.01), специалитет";
+			break;
+		case 101:
+			_specialization = "Информационная безопасность (10.04.01), магистратура";
+			break;
+		case 102:
+			_specialization = "Экономика (10.04.01), магистратура";
+			break;
+		default:
+			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
+			_specializationInt = NULL;
+			_specialization = "ERROR";
+			break;
+		}
+	case 8:
+		switch (_specializationInt)
+		{
+		case 1:
+			_specialization = "Экономика (38.03.01), бакалавриат";
+			break;
+		case 2:
+			_specialization = "Менеджмент (38.03.02), бакалавриат";
+			break;
+
+		case 101:
+			_specialization = "Экономика (38.04.01), магистратура";
+			break;
+		case 102:
+			_specialization = "Менеджмент (38.04.02), магистратура";
+			break;
+		default:
+			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
+			_specializationInt = NULL;
+			_specialization = "ERROR";
+			break;
+		}
+	case 9:
+		switch (_specializationInt)
+		{
+		case 1:
+			_specialization = "Экономика (38.03.01), бакалавриат";
+			break;
+		case 2:
+			_specialization = "Менеджмент (38.03.02), бакалавриат";
+			break;
+		case 101:
+			_specialization = "Экономика (38.04.01), магистратура";
+			break;
+		case 102:
+			_specialization = "Менеджмент (38.04.02), магистратура";
+			break;
+		default:
+			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
+			_specializationInt = NULL;
+			_specialization = "ERROR";
+			break;
+		}
+	case 10:
+		switch (_specializationInt)
+		{
+		case 1:
+			_specialization = "Юриспруденция (40.03.01), бакалавриат";
+			break;
+		case 101:
+			_specialization = "Юриспруденция (40.04.01), магистратура";
+			break;
+		default:
+			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
+			_specializationInt = NULL;
+			_specialization = "ERROR";
+			break;
+		}
+	default:
+		std::cout << "Выбран несуществующий факультет! Запись будет удалена!" << std::endl;
+		_specializationInt = NULL;
+		_specialization = "ERROR";
+		break;
+	}
+
+}
+
+void Specialization::AddSpecialization()
+{
+	Students[currentAmountOfStudentsInDatabase].specialization = _specialization;
+	Students[currentAmountOfStudentsInDatabase].specializationInt = _specializationInt;
+}
+
+void Specialization::ShowSpecialization()
+{
+}
+
+#pragma endregion
+
+
+/// <summary>
+/// Initialisation of the FullName object
 /// </summary>
 FullName fullName;
 
 /// <summary>
-/// Initialisation of the object
+/// Initialisation of the YearOfEnterringUniversity object
 /// </summary>
 YearOfEnterringUniversity yearOfEnterringUniversity;
 
 /// <summary>
-/// Initialisation of the object
+/// Initialisation of the Facility object
 /// </summary>
 Facility facility;
+
+/// <summary>
+/// Initialization of the Specialization object
+/// </summary>
+Specialization specialization;
 
 /// <summary>
 /// Deleting the specific data or the whole one
@@ -453,6 +802,8 @@ void EnterNew()
 	std::string inputYearOfEnterringUniversity;
 
 	std::string inputFacility;
+
+	std::string inputSpecialization;
 
 	std::cout << "Ввод информации" << std::endl;
 	if (currentAmountOfStudentsInDatabase < STRUCTURE_SIZE)
@@ -490,8 +841,19 @@ void EnterNew()
 
 		facility.SetFacility(inputFacility);
 		facility.CheckFacility();
-		facility.IntToStringFacility();
+		facility.StringToIntFacility();
 		facility.AddFacility();
+
+		std::cout << std::endl << "Выберите специальность" << std::endl;
+
+		std::cin >> inputSpecialization;
+
+		std::cout << std::endl;
+
+		specialization.SetSpecialization(inputSpecialization);
+		specialization.CheckSpecialization();
+		specialization.StringToIntSpecialization();
+		specialization.AddSpecialization();
 
 		currentAmountOfStudentsInDatabase++;
 	}
@@ -542,6 +904,10 @@ void Out()
 		std::cout << Students[outputNumber - 1].facility;
 		std::cout << std::endl;
 
+		std::cout << "Специальность" << std::endl;
+		std::cout << Students[outputNumber - 1].specialization;
+		std::cout << std::endl;
+
 		std::cout << "____________________________________" << std::endl;
 		std::cout << std::endl;
 
@@ -566,6 +932,10 @@ void Out()
 
 			std::cout << "Факультет" << std::endl;
 			std::cout << Students[i].facility;
+			std::cout << std::endl;
+
+			std::cout << "Специальность" << std::endl;
+			std::cout << Students[i].specialization;
 			std::cout << std::endl;
 
 			std::cout << "____________________________________" << std::endl;
