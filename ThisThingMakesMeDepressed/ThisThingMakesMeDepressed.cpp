@@ -1,6 +1,7 @@
 ﻿#include <string>
 #include <iostream>
 #include <Windows.h>
+#include <iomanip>
 #include <locale>
 
 /// const int to define structure size
@@ -31,6 +32,7 @@ struct Student
 	int facilityInt{};
 	std::string specialization{};
 	int specializationInt{};
+	int yearOfLeavingUniversity{};
 };
 
 #pragma endregion
@@ -110,6 +112,13 @@ void FullName::CheckFullName()
 		{
 			_surname.clear();
 			std::cout << "Введен некорректный символ "; std::cout << i + 1; std::cout << ", была введена цифра или спец.символ! Запись будет удалена!" << std::endl;
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
 	}
@@ -142,6 +151,13 @@ void FullName::CheckFullName()
 		{
 			_name.clear();
 			std::cout << "Введен некорректный символ "; std::cout << i + 1; std::cout << ", была введена цифра или спец.символ! Запись будет удалена!" << std::endl;
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
 	}
@@ -175,6 +191,14 @@ void FullName::CheckFullName()
 		{
 			_paronymic.clear();
 			std::cout << "Введен некорректный символ "; std::cout << i + 1; std::cout << ", была введена цифра или спец.символ! Запись будет удалена!" << std::endl;
+
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
 	}
@@ -254,6 +278,13 @@ void YearOfEnterringUniversity::CheckYearOfEnterringUniversity()
 		{
 			_year.clear();
 			std::cout << "Введен некорректный символ "; std::cout << i + 1; std::cout << ", была введена буква или спец.символ! Запись будет удалена!" << std::endl;
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
 
@@ -263,11 +294,17 @@ void YearOfEnterringUniversity::CheckYearOfEnterringUniversity()
 
 	if (_yearInt < 1995 || _yearInt > 2022)
 	{
-		std::cout << "Год поступления может быть указан в промежутке 1995-2022!";
+		std::cout << std::endl << "Год поступления может быть указан в промежутке 1995-2022! Запись будет удалена!" << std::endl;
 		_yearInt = NULL;
-	}
+		std::cout << "Удаление";
+		Sleep(1000);
+		std::cout << ".";
+		Sleep(1000);
+		std::cout << ".";
+		Sleep(1000);
+		std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 
-	std::cout << std::endl;
+	}
 }
 
 /// <summary>
@@ -334,6 +371,13 @@ void Facility::CheckFacility()
 		{
 			_facility.clear();
 			std::cout << "Введен некорректный символ "; std::cout << i + 1; std::cout << ", была введена буква или спец.символ! Запись будет удалена!" << std::endl;
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
 
@@ -366,19 +410,19 @@ void Facility::StringToIntFacility()
 		break;
 	case 3:
 		_facility = "Факультет проектирования, сооружения и эксплуатации систем трубопроводного транспорта";
-		break; 
+		break;
 	case 4:
 		_facility = "Факультет инженерной механики";
-		break; 
+		break;
 	case 5:
 		_facility = "Факультет химической технологии и экологии";
-		break; 
+		break;
 	case 6:
 		_facility = "Факультет автоматики и вычислительной техники";
-		break; 
+		break;
 	case 7:
 		_facility = "Факультет комплексной безопасности ТЭК";
-		break; 
+		break;
 	case 8:
 		_facility = "Факультет экономики и управления";
 		break;
@@ -392,6 +436,13 @@ void Facility::StringToIntFacility()
 		std::cout << "Факультета под номером "; std::cout << _facility; std::cout << " не существует! Запись будет удалена!" << std::endl;
 		_facilityInt = NULL;
 		_facility = "ERROR";
+		std::cout << "Удаление";
+		Sleep(1000);
+		std::cout << ".";
+		Sleep(1000);
+		std::cout << ".";
+		Sleep(1000);
+		std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 		break;
 	}
 }
@@ -463,6 +514,13 @@ void Specialization::CheckSpecialization()
 		{
 			_specialization.clear();
 			std::cout << "Введен некорректный символ "; std::cout << i + 1; std::cout << ", была введена буква или спец.символ! Запись будет удалена!" << std::endl;
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
 
@@ -508,6 +566,13 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
 		break;
@@ -530,6 +595,13 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
 		break;
@@ -549,6 +621,13 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
 		break;
@@ -557,7 +636,7 @@ void Specialization::StringToIntSpecialization()
 		{
 		case 1:
 			_specialization = "Машиностроение (15.03.01), бакалавриат";
-			break; 
+			break;
 		case 2:
 			_specialization = "Технологические машины и оборудование (15.03.02), бакалавриат";
 			break;
@@ -580,6 +659,13 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
 		break;
@@ -602,6 +688,13 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
 		break;
@@ -642,6 +735,13 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
 		break;
@@ -685,6 +785,13 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
 		break;
@@ -708,6 +815,13 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
 		break;
@@ -730,6 +844,13 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
 		break;
@@ -746,12 +867,27 @@ void Specialization::StringToIntSpecialization()
 			std::cout << "Специальности под цифрой "; std::cout << _specializationInt; std::cout << " не существует! Запись будет удалена!" << std::endl;
 			_specializationInt = NULL;
 			_specialization = "ERROR";
+			std::cout << "Удаление";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << ".";
+			Sleep(1000);
+			std::cout << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 			return;
 		}
+		break;
 	default:
 		std::cout << "Выбран несуществующий факультет! Запись будет удалена!" << std::endl;
 		_specializationInt = NULL;
 		_specialization = "ERROR";
+		std::cout << std::endl << "Удаление";
+		Sleep(1000);
+		std::cout << std::endl << ".";
+		Sleep(1000);
+		std::cout << std::endl << ".";
+		Sleep(1000);
+		std::cout << std::endl << "." << std::endl << std::endl << "Запись удалена!" << std::endl << std::endl;
 		break;
 	}
 }
@@ -768,6 +904,59 @@ void Specialization::ShowSpecialization()
 
 #pragma endregion
 
+#pragma region Class YearOfEnterringUniversity
+
+class YearOfLeavingUniversity
+{
+public:
+	~YearOfLeavingUniversity();
+	void SetYearOfLeavingUniversity(int);
+	void ShowYearOfLeavingUniversity();
+	void AddYearOfLeavingUniversity();
+
+
+protected:
+	int _year{};
+};
+
+/// <summary>
+/// Default destructor
+/// </summary>
+YearOfLeavingUniversity::~YearOfLeavingUniversity()
+{
+
+}
+
+/// <summary>
+/// Getting amd setting values for the next working with them
+/// </summary>
+/// <param name="year">Year of enterring the university input</param>
+void YearOfLeavingUniversity::SetYearOfLeavingUniversity(int year)
+{
+	_year = year;
+	if (Students[currentAmountOfStudentsInDatabase].specializationInt >= 1 && Students[currentAmountOfStudentsInDatabase].specializationInt < 10)
+		_year = year + 4;
+	else if (Students[currentAmountOfStudentsInDatabase].specializationInt >= 10 && Students[currentAmountOfStudentsInDatabase].specializationInt < 100)
+		_year = year + 5;
+	else if (Students[currentAmountOfStudentsInDatabase].specializationInt >= 100 && Students[currentAmountOfStudentsInDatabase].specializationInt < 1000)
+		_year = year + 2;
+	else _year = NULL;
+}
+
+void YearOfLeavingUniversity::AddYearOfLeavingUniversity()
+{
+	Students[currentAmountOfStudentsInDatabase].yearOfLeavingUniversity = _year;
+}
+
+/// <summary>
+/// Test void, delete later
+/// </summary>
+void YearOfLeavingUniversity::ShowYearOfLeavingUniversity()
+{
+	std::cout << _year << std::endl;
+}
+
+#pragma endregion
 
 /// <summary>
 /// Initialisation of the FullName object
@@ -790,11 +979,62 @@ Facility facility;
 Specialization specialization;
 
 /// <summary>
+/// Initialisation of the YearOfLeavingUniversity object
+/// </summary>
+YearOfLeavingUniversity yearOfLeavingUniversity;
+
+std::string ReplaceAll(std::string str, int start_position, const std::string& from, const std::string& to) {
+
+	size_t start_pos = start_position;
+
+	while ((start_pos = str.find(from, start_pos)) != std::string::npos) {
+		str.replace(start_pos, from.length(), to);
+		start_pos += to.length(); // Handles case where 'to' is a substring of 'from'
+	}
+
+	return str;
+}
+
+/// <summary>
 /// Deleting the specific data or the whole one
 /// </summary>
 void Delete()
 {
-	
+	std::string inputDelete;
+	int inputDeleteInt;
+	std::cout << "Введите номер записи которую надо удалить" << std::endl;
+	std::cout << "Если надо удалить все записи, нажмите '99'" << std::endl;
+
+	try
+	{
+		std::cin >> inputDelete;
+
+		inputDeleteInt = std::stoi(inputDelete);
+
+		if (inputDeleteInt != 99)
+		{
+			for (i = (inputDeleteInt - 1); i < currentAmountOfStudentsInDatabase; i++)
+				Students[i] = Students[i + 1];
+			currentAmountOfStudentsInDatabase = currentAmountOfStudentsInDatabase - 1;
+		}
+		if (inputDeleteInt == 99)
+			for (int i = 0; i < currentAmountOfStudentsInDatabase; i++)
+			{
+				Students[i].fullName = "";
+				Students[i].yearOfEnterringUniversity = NULL;
+				Students[i].facility = "";
+				Students[i].facilityInt = NULL;
+				Students[i].specialization = "";
+				Students[i].specializationInt = NULL;
+				Students[i].yearOfLeavingUniversity = NULL;
+				currentAmountOfStudentsInDatabase = 0;
+			}
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << "Неправильный формат!!!";
+	}
+	std::cout << "\nГОТОВО!!!\n" << std::endl;
 };
 
 /// <summary>
@@ -810,7 +1050,7 @@ void EnterNew()
 
 	std::string inputFacility;
 
-	std::string inputSpecialization;
+	std::string inputSpecialization{};
 
 	std::cout << "Ввод информации" << std::endl;
 	if (currentAmountOfStudentsInDatabase < STRUCTURE_SIZE)
@@ -832,6 +1072,12 @@ void EnterNew()
 		fullName.CheckFullName();
 		fullName.AddFullName();
 
+		if (Students[currentAmountOfStudentsInDatabase].fullName == "ERROR")
+		{
+			Students[currentAmountOfStudentsInDatabase].fullName = "";
+			return;
+		}
+
 		std::cout << std::endl << "Год поступления цифрами" << std::endl;
 		std::cin >> inputYearOfEnterringUniversity;
 
@@ -840,6 +1086,13 @@ void EnterNew()
 		yearOfEnterringUniversity.SetYearOfEnterringUniversity(inputYearOfEnterringUniversity);
 		yearOfEnterringUniversity.CheckYearOfEnterringUniversity();
 		yearOfEnterringUniversity.AddYearOfEnterringUniversity();
+
+		if (Students[currentAmountOfStudentsInDatabase].yearOfEnterringUniversity == 0)
+		{
+			Students[currentAmountOfStudentsInDatabase].fullName = "";
+			Students[currentAmountOfStudentsInDatabase].yearOfEnterringUniversity = NULL;
+			return;
+		}
 
 		std::cout << std::endl << "Выберите факультет\n1 - Факультет геологии и геофизики нефти и газа\n2 - Факультет разработки нефтяных и газовых месторождений\n3 - Факультет проектирования, сооружения и эксплуатации систем трубопроводного транспорта\n4 - Факультет инженерной механики\n5 - Факультет химической технологии и экологии\n6 - Факультет автоматики и вычислительной техники\n7 - Факультет комплексной безопасности ТЭК\n8 - Факультет экономики и управления\n9 - Факультет международного энергетического бизнеса\n10 - Юридический факультет" << std::endl;
 		std::cin >> inputFacility;
@@ -851,9 +1104,80 @@ void EnterNew()
 		facility.StringToIntFacility();
 		facility.AddFacility();
 
-		std::cout << std::endl << "Выберите специальность" << std::endl;
+		if (Students[currentAmountOfStudentsInDatabase].facilityInt == 0 || Students[currentAmountOfStudentsInDatabase].facility == "ERROR")
+		{
+			Students[currentAmountOfStudentsInDatabase].fullName = "";
+			Students[currentAmountOfStudentsInDatabase].yearOfEnterringUniversity = NULL;
+			Students[currentAmountOfStudentsInDatabase].facility = "";
+			Students[currentAmountOfStudentsInDatabase].facilityInt = NULL;
+			return;
+		}
 
-		std::cin >> inputSpecialization;
+		if (Students[currentAmountOfStudentsInDatabase].facilityInt == 1)
+		{
+			std::cout << std::endl << "Выберите специальность" << std::endl;
+			std::cout << "Специальности факультета геологии и геофизики нефти и газа:\n1 - Геология (05.03.01), бакалавриат\n2 - Экология и природопользование (05.03.06), бакалавриат\n11 - Прикладная геология (21.05.02), специалитет\n12 - Прикладная геология (21.05.02), специалитет\n101 - Нефтегазовое дело (21.04.01), магистратура\n102 - Экология и природопользование (05.04.06), магистратура\n";
+			std::cin >> inputSpecialization;
+		}
+		else if (Students[currentAmountOfStudentsInDatabase].facilityInt == 2)
+		{
+			std::cout << std::endl << "Выберите специальность" << std::endl;
+			std::cout << "Cпециальности факультета разработки нефтяных и газовых месторождений\n1 - Нефтегазовое дело (21.03.01), бакалавриат\n11 - Физические процессы горного или нефтегазового производства (21.05.05), специалитет\n12 - Нефтегазовые техника и технологии (21.05.06), специалитет\n101 - Нефтегазовое дело (21.04.01), магистратура\n";
+			std::cin >> inputSpecialization;
+		}
+		else if (Students[currentAmountOfStudentsInDatabase].facilityInt == 3)
+		{
+			std::cout << std::endl << "Выберите специальность" << std::endl;
+			std::cout << "Специальности факультета проектирования, сооружения и эксплуатации систем трубопроводного транспорта\n1 - Нефтегазовое дело (21.03.01), бакалавриат\n11 - Нефтегазовые техника и технологии (21.05.06), специалитет\n101 - Нефтегазовое дело (21.04.01), магистратура\n";
+			std::cin >> inputSpecialization;
+		}
+		else if (Students[currentAmountOfStudentsInDatabase].facilityInt == 4)
+		{
+			std::cout << std::endl << "Выберите специальность" << std::endl;
+			std::cout << "";
+			std::cin >> inputSpecialization;
+		}
+		else if (Students[currentAmountOfStudentsInDatabase].facilityInt == 5)
+		{
+			std::cout << std::endl << "Выберите специальность" << std::endl;
+			std::cout << "";
+			std::cin >> inputSpecialization;
+		}
+		else if (Students[currentAmountOfStudentsInDatabase].facilityInt == 6)
+		{
+			std::cout << std::endl << "Выберите специальность" << std::endl;
+			std::cout << "";
+			std::cin >> inputSpecialization;
+		}
+		else if (Students[currentAmountOfStudentsInDatabase].facilityInt == 7)
+		{
+			std::cout << std::endl << "Выберите специальность" << std::endl;
+			std::cout << "";
+			std::cin >> inputSpecialization;
+		}
+		else if (Students[currentAmountOfStudentsInDatabase].facilityInt == 8)
+		{
+			std::cout << std::endl << "Выберите специальность" << std::endl;
+			std::cout << "";
+			std::cin >> inputSpecialization;
+		}
+		else if (Students[currentAmountOfStudentsInDatabase].facilityInt == 9)
+		{
+			std::cout << std::endl << "Выберите специальность" << std::endl;
+			std::cout << "";
+			std::cin >> inputSpecialization;
+		}
+		else if (Students[currentAmountOfStudentsInDatabase].facilityInt == 10)
+		{
+			std::cout << std::endl << "Выберите специальность" << std::endl;
+			std::cout << "";
+			std::cin >> inputSpecialization;
+		}
+		else
+		{
+			inputSpecialization = "ERROR";
+			std::cout << std::endl << "Факультет был выбран неверно! Входным данным будет присвоино значение 'ERROR'" << std::endl;
+		}
 
 		std::cout << std::endl;
 
@@ -862,19 +1186,224 @@ void EnterNew()
 		specialization.StringToIntSpecialization();
 		specialization.AddSpecialization();
 
+		if (Students[currentAmountOfStudentsInDatabase].specializationInt == 0 || Students[currentAmountOfStudentsInDatabase].specialization == "ERROR")
+		{
+			Students[currentAmountOfStudentsInDatabase].fullName = "";
+			Students[currentAmountOfStudentsInDatabase].yearOfEnterringUniversity = NULL;
+			Students[currentAmountOfStudentsInDatabase].facility = "";
+			Students[currentAmountOfStudentsInDatabase].facilityInt = NULL;
+			return;
+		}
+
+		yearOfLeavingUniversity.SetYearOfLeavingUniversity(Students[currentAmountOfStudentsInDatabase].yearOfEnterringUniversity);
+		yearOfLeavingUniversity.AddYearOfLeavingUniversity();
+
 		currentAmountOfStudentsInDatabase++;
+
 	}
 	else
-		std::cout << "Введено максимальное кол-во запи-сей" << std::endl;
-	std::cout << "Что дальше?" << std::endl;
-	std::cin >> navigation;
+		std::cout << std::endl << "Введено максимальное кол-во запи-сей" << std::endl << std::endl;
 };
 
 /// <summary>
 /// Editing of the specific data
 /// </summary>
-void Change()
+void Search()
 {
+	std::cout << "Введите:" << std::endl;
+
+	std::string inputSearch;
+
+	std::cout << "1-для поиска по ФИО" << std::endl;
+	std::cout << "2-для поиска по году поступления" << std::endl;
+	std::cout << "3-для поиска по году отчисления" << std::endl;
+	std::cout << "4-для поиска по факультету" << std::endl;
+	std::cout << "5-для выхода" << std::endl;
+
+	std::cin >> navigation;
+	switch (navigation)
+	{
+	case 1:
+		std::cout << "Введите ФИО в формате 'Фамилия И.О.' для поиска" << std::endl;
+		std::getline(std::cin, inputSearch);
+		std::getline(std::cin, inputSearch);
+
+		std::cout << "____________________________________" << std::endl;
+		std::cout << std::endl;
+		for (i = 0; i < currentAmountOfStudentsInDatabase; i++)
+		{
+			if (Students[i].fullName == inputSearch)
+			{
+				std::cout << "\nЗапись номер " << i + 1 << std::endl;
+				std::cout << std::endl;
+
+				std::cout << "Фамилия И.О." << std::endl;
+				std::cout << Students[i].fullName;
+				std::cout << std::endl;
+
+				std::cout << "Год поступления" << std::endl;
+				std::cout << Students[i].yearOfEnterringUniversity;
+				std::cout << std::endl;
+
+				std::cout << "Факультет" << std::endl;
+				std::cout << Students[i].facility;
+				std::cout << std::endl;
+
+				std::cout << "Специальность" << std::endl;
+				std::cout << Students[i].specialization;
+				std::cout << std::endl;
+
+				std::cout << "Год отчисления" << std::endl;
+				std::cout << Students[i].yearOfLeavingUniversity;
+				std::cout << std::endl;
+
+				std::cout << "____________________________________" << std::endl;
+				std::cout << std::endl;
+			}
+		}
+		std::cout << "Поиск завершен." << std::endl;
+		break;
+	case 2:
+		std::cout << "Введите год поступления для поиска" << std::endl;
+		std::getline(std::cin, inputSearch);
+		std::getline(std::cin, inputSearch);
+
+		try
+		{
+			for (i = 0; i < currentAmountOfStudentsInDatabase; i++)
+			{
+				if (Students[i].yearOfEnterringUniversity == std::stoi(inputSearch))
+				{
+					std::cout << "\nЗапись номер " << i + 1 << std::endl;
+					std::cout << std::endl;
+
+					std::cout << "Фамилия И.О." << std::endl;
+					std::cout << Students[i].fullName;
+					std::cout << std::endl;
+
+					std::cout << "Год поступления" << std::endl;
+					std::cout << Students[i].yearOfEnterringUniversity;
+					std::cout << std::endl;
+
+					std::cout << "Факультет" << std::endl;
+					std::cout << Students[i].facility;
+					std::cout << std::endl;
+
+					std::cout << "Специальность" << std::endl;
+					std::cout << Students[i].specialization;
+					std::cout << std::endl;
+
+					std::cout << "Год отчисления" << std::endl;
+					std::cout << Students[i].yearOfLeavingUniversity;
+					std::cout << std::endl;
+
+					std::cout << "____________________________________" << std::endl;
+					std::cout << std::endl;
+				}
+			}
+		}
+		catch (const std::exception& e)
+		{
+			std::cout << "Неправильный формат!!!" << std::endl;
+		}
+
+		std::cout << "Поиск завершен." << std::endl;
+		break;
+	case 3:
+		std::cout << "Введите год отчисления для поиска" << std::endl;
+		std::getline(std::cin, inputSearch);
+		std::getline(std::cin, inputSearch);
+
+		try
+		{
+			for (i = 0; i < currentAmountOfStudentsInDatabase; i++)
+			{
+				if (Students[i].yearOfLeavingUniversity == std::stoi(inputSearch))
+				{
+					std::cout << "\nЗапись номер " << i + 1 << std::endl;
+					std::cout << std::endl;
+
+					std::cout << "Фамилия И.О." << std::endl;
+					std::cout << Students[i].fullName;
+					std::cout << std::endl;
+
+					std::cout << "Год поступления" << std::endl;
+					std::cout << Students[i].yearOfEnterringUniversity;
+					std::cout << std::endl;
+
+					std::cout << "Факультет" << std::endl;
+					std::cout << Students[i].facility;
+					std::cout << std::endl;
+
+					std::cout << "Специальность" << std::endl;
+					std::cout << Students[i].specialization;
+					std::cout << std::endl;
+
+					std::cout << "Год отчисления" << std::endl;
+					std::cout << Students[i].yearOfLeavingUniversity;
+					std::cout << std::endl;
+
+					std::cout << "____________________________________" << std::endl;
+					std::cout << std::endl;
+				}
+			}
+		}
+		catch (const std::exception& e)
+		{
+			std::cout << "Неправильный формат!!!" << std::endl;
+		}
+
+		std::cout << "Поиск завершен." << std::endl;
+		break;
+	case 4:
+		std::cout << "Введите факультет для поиска\n1 - Факультет геологии и геофизики нефти и газа\n2 - Факультет разработки нефтяных и газовых месторождений\n3 - Факультет проектирования, сооружения и эксплуатации систем трубопроводного транспорта\n4 - Факультет инженерной механики\n5 - Факультет химической технологии и экологии\n6 - Факультет автоматики и вычислительной техники\n7 - Факультет комплексной безопасности ТЭК\n8 - Факультет экономики и управления\n9 - Факультет международного энергетического бизнеса\n10 - Юридический факультет" << std::endl;
+		std::getline(std::cin, inputSearch);
+		std::getline(std::cin, inputSearch);
+
+		try
+		{
+			for (i = 0; i < currentAmountOfStudentsInDatabase; i++)
+			{
+				if (Students[i].facilityInt == std::stoi(inputSearch))
+				{
+					std::cout << "\nЗапись номер " << i + 1 << std::endl;
+					std::cout << std::endl;
+
+					std::cout << "Фамилия И.О." << std::endl;
+					std::cout << Students[i].fullName;
+					std::cout << std::endl;
+
+					std::cout << "Год поступления" << std::endl;
+					std::cout << Students[i].yearOfEnterringUniversity;
+					std::cout << std::endl;
+
+					std::cout << "Факультет" << std::endl;
+					std::cout << Students[i].facility;
+					std::cout << std::endl;
+
+					std::cout << "Специальность" << std::endl;
+					std::cout << Students[i].specialization;
+					std::cout << std::endl;
+
+					std::cout << "Год отчисления" << std::endl;
+					std::cout << Students[i].yearOfLeavingUniversity;
+					std::cout << std::endl;
+
+					std::cout << "____________________________________" << std::endl;
+					std::cout << std::endl;
+				}
+			}
+		}
+		catch (const std::exception& e)
+		{
+			std::cout << "Неправильный формат!!!" << std::endl;
+		}
+
+		std::cout << "Поиск завершен." << std::endl;
+		break;
+	default:
+		break;
+	}
 
 };
 
@@ -890,6 +1419,7 @@ void Out()
 	std::cout << "2-вывод всех записей" << std::endl;
 
 	std::cin >> navigation;
+
 	if (navigation == 1)
 	{
 		std::cout << "Введите номер записи, которую нужно вывести" << std::endl;
@@ -915,17 +1445,21 @@ void Out()
 		std::cout << Students[outputNumber - 1].specialization;
 		std::cout << std::endl;
 
+		std::cout << "Год отчисления" << std::endl;
+		std::cout << Students[outputNumber - 1].yearOfLeavingUniversity;
+		std::cout << std::endl;
+
 		std::cout << "____________________________________" << std::endl;
 		std::cout << std::endl;
 
 	}
 	if (navigation == 2)
 	{
+		std::cout << "____________________________________" << std::endl;
+		std::cout << std::endl;
+
 		for (int i = 0; i < currentAmountOfStudentsInDatabase; i++)
 		{
-			std::cout << "____________________________________" << std::endl;
-			std::cout << std::endl;
-
 			std::cout << "Запись номер " << i + 1 << std::endl;
 			std::cout << std::endl;
 
@@ -945,12 +1479,14 @@ void Out()
 			std::cout << Students[i].specialization;
 			std::cout << std::endl;
 
+			std::cout << "Год отчисления" << std::endl;
+			std::cout << Students[i].yearOfLeavingUniversity;
+			std::cout << std::endl;
+
 			std::cout << "____________________________________" << std::endl;
 			std::cout << std::endl;
 		}
 	}
-	std::cout << "Что делать дальше?" << std::endl;
-	std::cin >> navigation;
 };
 
 int main()
@@ -978,9 +1514,9 @@ int main()
 	/// </summary>
 	/// <returns></returns>
 	std::cout << "Введите:" << std::endl;
-	std::cout << "1-для удаления записи" << std::endl;
+	std::cout << "1-для удаления записи(ей)" << std::endl;
 	std::cout << "2-для ввода новой записи" << std::endl;
-	std::cout << "3-для изменения записи" << std::endl;
+	std::cout << "3-для поиска записи(ей)" << std::endl;
 	std::cout << "4-для вывода записи(ей)" << std::endl;
 	std::cout << "5-для выхода" << std::endl;
 
@@ -994,14 +1530,24 @@ int main()
 	{
 		switch (navigation)
 		{
-		case 1:  Delete();
+		case 1:
+			Delete();
+			std::cout << "Что дальше?" << std::endl;
+			std::cin >> navigation;
 			break;
-		case 2:  EnterNew();
+		case 2:
+			EnterNew();
+			std::cout << "Что дальше?" << std::endl;
+			std::cin >> navigation;
 			break;
-		case 3:  Change();
+		case 3:  Search();
+			std::cout << "Что дальше?" << std::endl;
+			std::cin >> navigation;
 			break;
 		case 4:  Out();
+			std::cout << "Что дальше?" << std::endl;
+			std::cin >> navigation;
 			break;
 		}
-	} while (navigation != 5);
+	} while (navigation == 1 || navigation == 2 || navigation == 3 || navigation == 4);
 }
